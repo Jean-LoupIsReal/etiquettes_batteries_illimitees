@@ -1,0 +1,14 @@
+{
+    "petite_etiquette": {
+        "description": {},
+        "prix_dollars": {},
+        "prix_cents": {},
+        "code": {}
+    },
+    "moyenne_etiquette": {
+        "hauteur": 33
+    },
+    "grande_etiquette": {
+        "hauteur": 33
+    }
+}

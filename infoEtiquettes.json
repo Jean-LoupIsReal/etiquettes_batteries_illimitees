@@ -1,0 +1,108 @@
+{
+    "petite_etiquette": {
+        "hauteur": 33,
+        "largeur": 50,
+        "h_section_prix": 10.5,
+        "h_section_desc": 12.5,
+        "h_section_code": 10,
+        "h_code_bar": 4,
+        "l_section_prix": 50,
+        "marge_interne_x": 3,
+        "marge_interne_y": 3,
+        "styles": {
+            "style_code": {
+                "fontName": "Helvetica-Bold",
+                "fontSize": 17,
+                "alignment": "CENTER",
+                "leading_mult": 0.66
+            },
+            "style_description": {
+                "fontName": "Helvetica",
+                "fontSize": 8,
+                "alignment": "CENTER",
+                "leading_mult": 1
+            },
+            "style_prix": {
+                "fontName": "Helvetica-Bold",
+                "fontSize": 30,
+                "alignment": "CENTER",
+                "leading_mult": 0.66
+            }
+        }
+    },
+    "moyenne_etiquette": {
+        "hauteur": 33,
+        "largeur": 108,
+        "h_section_prix": 33,
+        "h_section_desc": 23,
+        "h_section_code": 10,
+        "h_code_bar": 4,
+        "l_section_prix": 58,
+        "marge_interne_x": 3,
+        "marge_interne_y": 2,
+        "styles": {
+            "style_code": {
+                "fontName": "Helvetica-Bold",
+                "fontSize": 17,
+                "alignment": "CENTER",
+                "leading_mult": 1.2
+            },
+            "style_description": {
+                "fontName": "Helvetica",
+                "fontSize": 8,
+                "alignment": "CENTER",
+                "leading_mult": 1.2
+            },
+            "style_prix_dollar": {
+                "fontName": "Helvetica-Bold",
+                "fontSize": 30,
+                "alignment": "RIGHT",
+                "leading_mult": 0.66
+            },
+            "style_prix_cent": {
+                "fontName": "Helvetica-Bold",
+                "fontSize": 30,
+                "alignment": "RIGHT",
+                "leading_mult": 0.66
+            }
+        }
+    },
+    "grande_etiquette": {
+        "hauteur": 33,
+        "largeur": 170,
+        "h_section_prix": 33,
+        "h_section_desc": 10,
+        "h_section_code": 18,
+        "h_section_garantie": 5,
+        "l_section_prix": 58,
+        "h_code_bar": 4,
+        "marge_interne_x": 3,
+        "marge_interne_y": 2,
+        "styles": {
+            "style_code": {
+                "fontName": "Helvetica-Bold",
+                "fontSize": 17,
+                "alignment": "CENTER",
+                "leading_mult": 1.2
+            },
+            "style_description": {
+                "fontName": "Helvetica",
+                "fontSize": 8,
+                "alignment": "CENTER",
+                "leading_mult": 1
+            },
+            "style_prix_dollar": {
+                "fontName": "Helvetica-Bold",
+                "fontSize": 30,
+                "alignment": "RIGHT",
+                "leading_mult": 0.66
+            },
+            "style_prix_cent": {
+                "fontName": "Helvetica-Bold",
+                "fontSize": 30,
+                "alignment": "RIGHT",
+                "leading_mult": 0.66
+            }
+        }
+    }
+}

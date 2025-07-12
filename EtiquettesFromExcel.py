@@ -42,10 +42,11 @@ class EtiquettesFromExcel:
         df_impression = df_impression.merge(df_inventaire, on="No", how="left")
         #df_impression["No"] = df_impression([])
 
+        # Cree le pdf avec le nom etiquettes + la date du 
         current_datetime = datetime.now()
         now = current_datetime.strftime("%Y-%m-%d-%H-%M")
         generateur_etiquettes = GenerateurEtiquettes()
-        generateur_etiquettes.generer_pdf_petite_etiquettes(df_impression.groupby(["No"]).first(), os.path.join(self.BASE_DIR, f"etiquettes-{now}.pdf"), True)
+        generateur_etiquettes.generer_pdf_etiquettes(df_impression.groupby(["No"]).first(), os.path.join(self.BASE_DIR, f"etiquettes-{now}.pdf"), False)
 
  
 # Execution du script
