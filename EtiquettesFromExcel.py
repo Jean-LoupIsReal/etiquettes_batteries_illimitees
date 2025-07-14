@@ -40,8 +40,7 @@ class EtiquettesFromExcel:
         df_impression["No"] = df_impression.iloc[:,0]
 
         df_impression = df_impression.merge(df_inventaire, on="No", how="left")
-        #df_impression["No"] = df_impression([])
-
+        
         # Cree le pdf avec le nom etiquettes + la date du 
         current_datetime = datetime.now()
         now = current_datetime.strftime("%Y-%m-%d-%H-%M")

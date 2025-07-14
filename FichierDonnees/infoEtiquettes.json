@@ -36,7 +36,7 @@
         "h_section_prix": 33,
         "h_section_desc": 23,
         "h_section_code": 10,
-        "h_code_bar": 4,
+        "h_code_bar": 6,
         "l_section_prix": 58,
         "marge_interne_x": 3,
         "marge_interne_y": 2,
@@ -62,7 +62,7 @@
             "style_prix_cent": {
                 "fontName": "Helvetica-Bold",
                 "fontSize": 30,
-                "alignment": "RIGHT",
+                "alignment": "LEFT",
                 "leading_mult": 0.66
             }
         }
@@ -75,7 +75,7 @@
         "h_section_code": 18,
         "h_section_garantie": 5,
         "l_section_prix": 58,
-        "h_code_bar": 4,
+        "h_code_bar": 6,
         "marge_interne_x": 3,
         "marge_interne_y": 2,
         "styles": {
@@ -100,9 +100,11 @@
             "style_prix_cent": {
                 "fontName": "Helvetica-Bold",
                 "fontSize": 30,
-                "alignment": "RIGHT",
+                "alignment": "LEFT",
                 "leading_mult": 0.66
             }
         }
-    }
+    },
+    "rack_sherbrooke": {},
+    "rack_granby": {}
 }

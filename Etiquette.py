@@ -24,28 +24,18 @@ class Etiquette:
 
 
     def __init__(self, type_etiquette):
-        try:
-            
-            with open('infoEtiquettes.json', 'r') as file:
-                json_all_type_etiquettes = json.load(file)
-            etiquette = json_all_type_etiquettes[type_etiquette]
+        
+        with open('FichierDonnees/infoEtiquettes.json', 'r') as file:
+            json_all_type_etiquettes = json.load(file)
+        etiquette = json_all_type_etiquettes[type_etiquette]
+        self.dimensions = {}
+        for dim_name, dim_config in etiquette.items():
+            if dim_name != "styles" :
+                self.dimensions[dim_name] = dim_config * mm
 
-            self.largeur_etiquette = etiquette["largeur"] * mm
-            self.hauteur_etiquette = etiquette["hauteur"] * mm
+        self.dimensions["marge_interne_x"] = etiquette["marge_interne_x"]
+        self.dimensions["marge_interne_y"] = etiquette["marge_interne_y"]
 
-            self.h_section_prix = etiquette["h_section_prix"] * mm
-            self.h_section_desc = etiquette["h_section_desc"] * mm
-            self.h_section_code = etiquette["h_section_code"] * mm
-
-            self.marge_interne_x = etiquette["marge_interne_x"]
-            self.marge_interne_y = etiquette["marge_interne_y"]
-
-        except:
-            print("Le type d'etiquette (" + type_etiquette + ") n'existe pas dans la reference. Regarder fichier dimEtiquettes.json")
-            os.system("pause")
-            exit(1)
-
-        #styles_sheet = getSampleStyleSheet()
         self.styles = {}
         for style_name, style_config in etiquette["styles"].items():
             self.styles[style_name] = ParagraphStyle(
