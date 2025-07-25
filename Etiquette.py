@@ -24,10 +24,10 @@ class Etiquette:
 
 
     def __init__(self, type_etiquette):
-        
         with open('FichierDonnees/infoEtiquettes.json', 'r') as file:
             json_all_type_etiquettes = json.load(file)
         etiquette = json_all_type_etiquettes[type_etiquette]
+        self.nom = type_etiquette
         self.dimensions = {}
         for dim_name, dim_config in etiquette.items():
             if dim_name != "styles" :
@@ -35,6 +35,8 @@ class Etiquette:
 
         self.dimensions["marge_interne_x"] = etiquette["marge_interne_x"]
         self.dimensions["marge_interne_y"] = etiquette["marge_interne_y"]
+
+        self.prix_est_separe = etiquette["l_section_prix"] != 0
 
         self.styles = {}
         for style_name, style_config in etiquette["styles"].items():
