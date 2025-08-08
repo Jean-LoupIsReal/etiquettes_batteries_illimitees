@@ -32,20 +32,20 @@
     },
     "moyenne_etiquette": {
         "hauteur": 33,
-        "largeur": 108,
+        "largeur": 100,
         "h_section_prix": 33,
         "h_section_desc": 23,
         "h_section_code": 10,
         "h_code_bar": 6,
-        "l_section_prix": 58,
+        "l_section_prix": 55,
         "marge_interne_x": 3,
         "marge_interne_y": 2,
         "styles": {
             "style_code": {
                 "fontName": "Helvetica-Bold",
-                "fontSize": 17,
+                "fontSize": 28,
                 "alignment": "CENTER",
-                "leading_mult": 1.2
+                "leading_mult": 1
             },
             "style_description": {
                 "fontName": "Helvetica",
@@ -55,13 +55,13 @@
             },
             "style_prix_dollar": {
                 "fontName": "Helvetica-Bold",
-                "fontSize": 30,
+                "fontSize": 40,
                 "alignment": "RIGHT",
                 "leading_mult": 0.66
             },
             "style_prix_cent": {
                 "fontName": "Helvetica-Bold",
-                "fontSize": 30,
+                "fontSize": 25,
                 "alignment": "LEFT",
                 "leading_mult": 0.66
             }
@@ -81,7 +81,7 @@
         "styles": {
             "style_code": {
                 "fontName": "Helvetica-Bold",
-                "fontSize": 17,
+                "fontSize": 15,
                 "alignment": "CENTER",
                 "leading_mult": 1.2
             },
@@ -99,7 +99,7 @@
             },
             "style_prix_cent": {
                 "fontName": "Helvetica-Bold",
-                "fontSize": 30,
+                "fontSize": 15,
                 "alignment": "LEFT",
                 "leading_mult": 0.66
             }

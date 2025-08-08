@@ -25,7 +25,7 @@ from GenerateurEtiquettes import GenerateurEtiquettes
 class EtiquettesFromExcel:
     # Chemin absolu basé sur le script lui-même
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    CSV_SERVEX_PATH = os.path.join(BASE_DIR, "FichierDonnees", "Servex_nettoye.csv")
+    CSV_SERVEX_PATH = os.path.join(BASE_DIR, "FichierDonnees/donnees_magasin", "Servex_nettoye.csv")
 
     # Crée le PDF avec les informations demandés à l'utilisateur
     def creer_pdf(self): 

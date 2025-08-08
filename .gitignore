@@ -9,6 +9,9 @@ __pycache__/
 # Fichiers pdf
 *.pdf
 
+# Données du magasin
+FichierDonnees/donnees_magasin/
+
 # Distribution / packaging
 .Python
 build/
