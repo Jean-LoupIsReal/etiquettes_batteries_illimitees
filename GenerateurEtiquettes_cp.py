@@ -111,11 +111,9 @@ class GenerateurEtiquettes:
                 r = True
             case "3":
                 print("moyenne")
-                r = True
                 type_etiquette = "moyenne_etiquette"
             case "4":
                 print("grande")
-                r = True
                 type_etiquette = "grande_etiquette"
             case "cancel":  # Default case
                 print("cancel")
@@ -150,7 +148,7 @@ class GenerateurEtiquettes:
         i = 0
         for row in data.iterrows():
             if i > 0 and i % self.nb_par_page == 0:
-                c.showPage() 
+                c.showPage()
                 # Lignes exterieures 
                 self.dessiner_grille(c)
             
@@ -203,10 +201,11 @@ class GenerateurEtiquettes:
             # Code du produit
             h_code = self.etiquette.dimensions["h_section_code"] - h_code_bar
             w_code = self.etiquette.dimensions["largeur"] - self.etiquette.dimensions["marge_interne_x"] * 2
-            p_code = self.paragraphe_ajuste_produit(str(row[0]), w_code, h_code) 
+            p_code = self.paragraphe_ajuste_produit(str(row[0]), w_code, h_code)
+
             # S'assure que le code du produit reste dans le frame
             y_code = y  + h_code_bar + 3
-            x_code = x + self.etiquette.dimensions["marge_interne_x"] 
+            x_code = x + self.etiquette.dimensions["marge_interne_x"]
             p_code.drawOn(c, x_code, y_code)
 
             # Code-barres
@@ -216,8 +215,7 @@ class GenerateurEtiquettes:
             i += 1
     
 
-
-    def generer_MG_etiquettes(self, c, data, variante = True):
+    def generer_MG_etiquettes(self, c, data, variante = False):
         i = 0
         for row in data.iterrows():
             if i > 0 and i % self.nb_par_page == 0:
@@ -233,22 +231,18 @@ class GenerateurEtiquettes:
 
             # Déclare Hauteur (du bas au haut)
             h_code_bar = self.etiquette.dimensions["h_code_bar"]
-
-            y_ligne_bas = y + self.etiquette.dimensions["h_section_code"]
-
-            y_ligne_haut = y_ligne_bas + self.etiquette.dimensions["h_section_desc"]
-            y_prix = y_ligne_haut + self.etiquette.dimensions["h_section_prix"]/2
-
-            y_code = y + self.etiquette.dimensions["h_section_code"]/2 
+            y_ligne = y 
             y_desc = y + self.etiquette.dimensions["h_section_desc"]/2
+            x_marge = x + self.etiquette.dimensions["marge_interne_x"]
+            y_code = y + self.etiquette.dimensions["h_section_code"]/2
 
             if variante:
-                y_ligne_bas = y + self.etiquette.dimensions["h_section_desc"]
-                y_code = y_code + y_ligne_bas - y
-            else:
-                y_ligne_bas = y + self.etiquette.dimensions["h_section_code"]
-                y_desc = y_desc + y_ligne_bas - y
+                y_ligne += self.etiquette.dimensions["h_section_desc"]
+                y_code += y_ligne
 
+            else :
+                y_ligne += self.etiquette.dimensions["h_section_code"]
+                y_desc += y_ligne
 
             l_section_desc = self.etiquette.dimensions["largeur"] - self.etiquette.dimensions["l_section_prix"]
             
@@ -257,12 +251,12 @@ class GenerateurEtiquettes:
             w_code = self.etiquette.dimensions["largeur"] - self.etiquette.dimensions["l_section_prix"] - self.etiquette.dimensions["marge_interne_x"] * 2
             p_code = self.paragraphe_ajuste_produit(str(row[0]), w_code) 
             # Place le code sur la grille
-            x_code = x + self.etiquette.dimensions["marge_interne_x"]
+            test = p_code.blPara.descent
             y_code = y_code - p_code.height/2 - int(p_code.blPara.descent)
-            p_code.drawOn(c, x_code, y_code)
+            p_code.drawOn(c, x_marge, y_code)
 
             # Lignes
-            c.line(x, y_ligne_bas, x + l_section_desc, y_ligne_bas)
+            c.line(x, y_ligne, x + l_section_desc, y_ligne)
             if self.etiquette.dimensions["l_section_prix"] != 0:
                 x_ligne_cote = x + l_section_desc
                 y_fin = y + self.etiquette.dimensions["hauteur"]
@@ -270,7 +264,7 @@ class GenerateurEtiquettes:
 
             # Description
             l_desc = l_section_desc - 2 * self.etiquette.dimensions["marge_interne_y"]
-            h_desc = (y_desc - 2 * self.etiquette.dimensions["marge_interne_y"]) * 3/4
+            h_desc =(y_desc - 2 * self.etiquette.dimensions["marge_interne_y"]) * 3/4
             p_desc = Paragraph(str(row[1].Description), self.etiquette.styles["style_description"])
             p_desc.wrapOn(c, l_desc, h_desc)
 

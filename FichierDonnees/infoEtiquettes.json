@@ -34,8 +34,8 @@
         "hauteur": 33,
         "largeur": 100,
         "h_section_prix": 33,
-        "h_section_desc": 23,
-        "h_section_code": 10,
+        "h_section_desc": 18,
+        "h_section_code": 15,
         "h_code_bar": 6,
         "l_section_prix": 55,
         "marge_interne_x": 3,
@@ -71,7 +71,7 @@
         "hauteur": 33,
         "largeur": 170,
         "h_section_prix": 33,
-        "h_section_desc": 10,
+        "h_section_desc": 15,
         "h_section_code": 18,
         "h_section_garantie": 5,
         "l_section_prix": 58,
@@ -81,25 +81,25 @@
         "styles": {
             "style_code": {
                 "fontName": "Helvetica-Bold",
-                "fontSize": 15,
+                "fontSize": 40,
                 "alignment": "CENTER",
                 "leading_mult": 1.2
             },
             "style_description": {
                 "fontName": "Helvetica",
-                "fontSize": 8,
+                "fontSize": 12,
                 "alignment": "CENTER",
                 "leading_mult": 1
             },
             "style_prix_dollar": {
                 "fontName": "Helvetica-Bold",
-                "fontSize": 30,
+                "fontSize": 40,
                 "alignment": "RIGHT",
                 "leading_mult": 0.66
             },
             "style_prix_cent": {
                 "fontName": "Helvetica-Bold",
-                "fontSize": 15,
+                "fontSize": 25,
                 "alignment": "LEFT",
                 "leading_mult": 0.66
             }
