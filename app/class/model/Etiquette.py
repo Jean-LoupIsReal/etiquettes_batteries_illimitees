@@ -22,7 +22,6 @@ class Etiquette:
     STYLE_PRIX_DOLLAR = 2
     STYLE_PRIX_CENT = 3
 
-
     def __init__(self, type_etiquette):
         with open('FichierDonnees/infoEtiquettes.json', 'r') as file:
             json_all_type_etiquettes = json.load(file)
@@ -47,7 +46,4 @@ class Etiquette:
                 alignment = ALIGNMENTS.get(style_config["alignment"], TA_LEFT),
                 leading = style_config["fontSize"] * style_config["leading_mult"]
             )
-    
-
-
 
