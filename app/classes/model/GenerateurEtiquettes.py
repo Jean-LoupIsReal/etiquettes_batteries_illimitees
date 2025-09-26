@@ -10,7 +10,8 @@ import pandas as pd
 import numpy as np
 import json
 import os
-from Etiquette import Etiquette
+from model.Etiquette import Etiquette
+
 class GenerateurEtiquettes:
     style_description = ParagraphStyle
     style_code = ParagraphStyle

@@ -23,7 +23,7 @@ class Etiquette:
     STYLE_PRIX_CENT = 3
 
     def __init__(self, type_etiquette):
-        with open('FichierDonnees/infoEtiquettes.json', 'r') as file:
+        with open('../../data/infoEtiquettes.json', 'r') as file:
             json_all_type_etiquettes = json.load(file)
         etiquette = json_all_type_etiquettes[type_etiquette]
         self.nom = type_etiquette

@@ -17,10 +17,10 @@ for package in packages:
 import pandas as pd
 from datetime import datetime, date
 import traceback
-from GenerateurEtiquettes import GenerateurEtiquettes
-from EtiquettesFromFile import EtiquettesFromFile
+from model.GenerateurEtiquettes import GenerateurEtiquettes
+from model.EtiquettesFromFile import EtiquettesFromFile
 
-
+# Loop principal du programme
 def main_loop():
     exit_condition = False
     

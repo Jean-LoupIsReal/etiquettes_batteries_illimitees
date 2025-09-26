@@ -21,16 +21,23 @@ print("Selectionnez votre fichier Excel pour les etiquettes.")
 import pandas as pd
 from datetime import datetime, date
 import traceback
-from GenerateurEtiquettes import GenerateurEtiquettes
+from model import GenerateurEtiquettes
+from dotenv import load_dotenv
+from pathlib import Path
+
+# Charger le .env (par défaut, cherche à la racine)
+env_path = Path(__file__).resolve().parent.parent / ".env"
+load_dotenv(dotenv_path=env_path)
 
 class EtiquettesFromFile:
-    # Chemin absolu basé sur le script lui-même
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    PATH_DATA_FOLDER = os.path.join(BASE_DIR, "../../", "data/")
-    CSV_SERVEX_PATH = os.path.join(PATH_DATA_FOLDER, "/donnees_magasin/", "Servex_nettoye.csv")
+   # Récupérer les variables
+    BASE_DIR = os.getenv("BASE_DIR")
+    PATH_DATA_FOLDER = os.getenv("DATA_FOLDER")
+    CSV_SERVEX_PATH = os.getenv("CSV_SERVEX")
 
     # Crée le PDF avec les informations demandés à l'utilisateur
     def creer_pdf(self): 
+        print(self.PATH_DATA_FOLDER)
         print(self.CSV_SERVEX_PATH)
         # Déclarer les variable des données
         df_inventaire = pd.read_csv(self.CSV_SERVEX_PATH)
