@@ -7,9 +7,9 @@ import pandas as pd
 class ExcelData(QWidget):
     def __init__(self):
         super().__init__()
-        self.create_window(self, df)
+        self.create_window()
 
-    def create_window(self, df):
+    def create_window(self):
         self.setWindowTitle("Afficher les données Excel")
         self.setGeometry(100, 100, 800, 600)
         
@@ -20,7 +20,7 @@ class ExcelData(QWidget):
         self.layout.addWidget(self.table_widget)
 
         self.button = QPushButton("&Charger un fichier Excel")
-        self.button.clicked.connect(self.show_window(self))
+        self.button.clicked.connect(self.show_window)
         self.layout.addWidget(self.button)
 
     def ask_file(self):
