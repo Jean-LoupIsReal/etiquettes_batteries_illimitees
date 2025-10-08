@@ -1,10 +1,17 @@
 import sys
 import os
-from PyQt6.QtWidgets import QApplication, QFileDialog, QWidget, QTableWidget, QTableWidgetItem, QHeaderView, QVBoxLayout, QPushButton
-from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QApplication, QFileDialog, QWidget, QTableWidget, QTableWidgetItem, QHeaderView, QVBoxLayout, QPushButton, QMessageBox
+from PyQt6.QtCore import pyqtSignal, Qt
 import pandas as pd
 
-class ExcelData(QWidget):
+"""
+View: gère l'interface utilisateur (widgets, rendu).
+Émet des signaux que le contrôleur écoute.
+"""
+class ExcelDataView(QWidget):
+    # Signals :
+    open_file_requested = pyqtSignal()
+
     def __init__(self):
         super().__init__()
         self.create_window()
@@ -20,7 +27,7 @@ class ExcelData(QWidget):
         self.layout.addWidget(self.table_widget)
 
         self.button = QPushButton("&Charger un fichier Excel")
-        self.button.clicked.connect(self.show_window)
+        self.button.clicked.connect(self.open_file_requested)#self.bouton_charger_fichier)
         self.layout.addWidget(self.button)
 
     def ask_file(self):
@@ -29,10 +36,7 @@ class ExcelData(QWidget):
         file_path, _ = QFileDialog.getOpenFileName(self, "Ouvrir un fichier Excel", file_folder, "Fichiers Excel (*.xlsx *.xls *.xlsm *.csv);;Tous les fichiers (*)")
         return file_path
 
-    def show_window(self):
-        df = self.load_excel_data()
-        self.display_data(df)
-
+    # model
     def load_excel_data(self, file_path = None):
         if not file_path:
             file_path = self.ask_file()
@@ -41,23 +45,30 @@ class ExcelData(QWidget):
                 df = pd.read_excel(file_path) if not file_path.endswith(".csv") else pd.read_csv(file_path)
                 return df
             except Exception as e:
-                print(f"Erreur lors de la lecture du fichier Excel: {e}")
+                self.display_error(f"Erreur lors de la lecture du fichier Excel: {e}")
+                return None
 
     def display_data(self, df):
         self.table_widget.setRowCount(df.shape[0])
         self.table_widget.setColumnCount(df.shape[1])
         self.table_widget.setHorizontalHeaderLabels(df.columns.tolist())
-        
         for i in range(df.shape[0]):
             for j in range(df.shape[1]):
                 item = QTableWidgetItem(str(df.iat[i, j]))
                 item.setFlags(item.flags() ^ Qt.ItemFlag.ItemIsEditable)  # Rendre les cellules non éditables
                 self.table_widget.setItem(i, j, item)
-        
+
         self.table_widget.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
+        
+    def display_error(self, error):
+        msg = QMessageBox(self)
+        msg.setIcon(QMessageBox.Icon.Critical)
+        msg.setWindowTitle("Erreur")
+        msg.setText(error)
+        msg.exec()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = ExcelData()
+    window = ExcelDataView()
     window.show()
     sys.exit(app.exec())

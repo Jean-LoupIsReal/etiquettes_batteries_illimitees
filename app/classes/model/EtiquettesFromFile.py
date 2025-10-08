@@ -21,13 +21,13 @@ print("Selectionnez votre fichier Excel pour les etiquettes.")
 import pandas as pd
 from datetime import datetime, date
 import traceback
-from model import GenerateurEtiquettes
-from dotenv import load_dotenv
+from .GenerateurEtiquettes import GenerateurEtiquettes
+#from dotenv import load_dotenv
 from pathlib import Path
 
 # Charger le .env (par défaut, cherche à la racine)
 env_path = Path(__file__).resolve().parent.parent / ".env"
-load_dotenv(dotenv_path=env_path)
+#load_dotenv(dotenv_path=env_path)
 
 class EtiquettesFromFile:
    # Récupérer les variables

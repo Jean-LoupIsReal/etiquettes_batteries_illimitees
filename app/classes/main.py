@@ -17,8 +17,28 @@ for package in packages:
 import pandas as pd
 from datetime import datetime, date
 import traceback
-from model.GenerateurEtiquettes import GenerateurEtiquettes
-from model.EtiquettesFromFile import EtiquettesFromFile
+#from model.GenerateurEtiquettes import GenerateurEtiquettes
+#from model.EtiquettesFromFile import EtiquettesFromFile
+import sys
+from PyQt6.QtWidgets import QApplication
+from view import ExcelDataView
+from model import DataStore
+from controller import ExcelDataController
+
+
+def main() -> int:
+    app = QApplication(sys.argv)
+
+    data_view = ExcelDataView()
+    data_store = DataStore()
+    controller = ExcelDataController(data_view, data_store)  # noqa: F841 (utilisé via connexions)
+
+    data_view.show()
+    return app.exec()
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
 
 # Loop principal du programme
 def main_loop():
@@ -36,8 +56,8 @@ def main_loop():
         match user_input :
             case "1":
                 print("recherche fichier excel")
-                e = EtiquettesFromFile()
-                e.creer_pdf()
+                #e = EtiquettesFromFile()
+                #e.creer_pdf()
             case "2":
                 print("Mise a jours d'étiquette avec nouveau fichier csv")
             case "3":
@@ -51,4 +71,3 @@ def main_loop():
             case _:
                 print("mauvais input")
         input("Press Enter to continue...")  # Waits specifically for the spacebar to be pressed
-main_loop()
