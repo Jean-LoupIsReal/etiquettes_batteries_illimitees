@@ -2,6 +2,7 @@ import subprocess
 import sys
 import os
 
+
 # Liste des paquets nécessaires
 packages = ["reportlab", "pandas", "numpy", "openpyxl", "pyqt6"]
 
@@ -21,19 +22,27 @@ import traceback
 #from model.EtiquettesFromFile import EtiquettesFromFile
 import sys
 from PyQt6.QtWidgets import QApplication
-from view import ExcelDataView
+from view import ExcelDataView, Ui_MainWindow, Ui_SelectionWindow
 from model import DataStore
-from controller import ExcelDataController
+from controller import ExcelDataController, MainWindowController, SelectionController,DataWindowController, ReprintWindowController, UpdateWindowController
 
 
 def main() -> int:
     app = QApplication(sys.argv)
+    selectionC = SelectionController()
+    reprintC = ReprintWindowController()
+    updateC = UpdateWindowController()
+    dataC = DataWindowController()
 
-    data_view = ExcelDataView()
-    data_store = DataStore()
-    controller = ExcelDataController(data_view, data_store)  # noqa: F841 (utilisé via connexions)
+    MainMenu_Controller = MainWindowController(selectionC, reprintC, updateC, dataC)
 
-    data_view.show()
+
+    #data_view = ExcelDataView()
+    #data_store = DataStore()
+    #controller = ExcelDataController(data_view, data_store)  # noqa: F841 (utilisé via connexions)
+
+    #data_view.show()
+    MainMenu_Controller.show()
     return app.exec()
 
 

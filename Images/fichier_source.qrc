@@ -1,0 +1,29 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>icons/001-inbox.png</file>
+    <file>icons/002-home.png</file>
+    <file>icons/003-cross.png</file>
+    <file>icons/004-search-interface-symbol.png</file>
+    <file>icons/005-menu-bar.png</file>
+    <file>icons/006-add-post.png</file>
+    <file>icons/007-add-file.png</file>
+    <file>icons/008-reprint.png</file>
+    <file>icons/009-view-files.png</file>
+    <file>icons/010-data-processing.png</file>
+    <file>icons/011-selective.png</file>
+    <file>icons/012-exit.png</file>
+    <file>icons/013-logout.png</file>
+    <file>icons/014-product-development.png</file>
+    <file>icons/015-label.png</file>
+    <file>icons/016-print.png</file>
+  </qresource>
+  <qresource prefix="logo">
+    <file>logo/logo (1).png</file>
+    <file>logo/logo2petit.png</file>
+    <file>logo/logo.png</file>
+    <file>logo/large_logo.png</file>
+    <file>logo/small_logo.png</file>
+  </qresource>
+  <qresource prefix="newPrefix"/>
+  <qresource prefix="newPrefix"/>
+</RCC>
