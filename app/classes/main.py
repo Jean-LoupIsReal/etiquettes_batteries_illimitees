@@ -22,7 +22,7 @@ import traceback
 #from model.EtiquettesFromFile import EtiquettesFromFile
 import sys
 from PyQt6.QtWidgets import QApplication
-from view import ExcelDataView, Ui_MainWindow, Ui_SelectionWindow
+from view import ExcelDataView, Ui_MainWindow
 from model import DataStore
 from controller import ExcelDataController, MainWindowController, SelectionController,DataWindowController, ReprintWindowController, UpdateWindowController
 
